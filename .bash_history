@@ -211,3 +211,48 @@ vim hostpathvol.yml
 kubectl create -f hostpathvol.yml 
 vim hostpathvol.yml 
 kubectl create -f hostpathvol.yml 
+ll
+git init
+git remote add origin https://github.com/vamsipamu/MYK8-s
+git add .
+ll
+git commit -m "copy my files"
+git push origin master
+eksctl create cluster --name EKS1pamu --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup
+eksctl delete cluster --name EKS1pamu --region us-east-1
+ll
+eksctl create cluster --name EKS-1 --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup
+eksctl create cluster --name EKS1p --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup
+ eksctl utils associate-iam-oidc-provider --region us-east-1 --cluster EKS1p --approve
+ eksctl utils associate-iam-oidc-provider --region ap-south-1 --cluster EKS-1 --approve
+:
+ eksctl create nodegroup --cluster=EKS1p --region=us-east-1 --name=node2 --node-type=t3.medium --nodes=3 --nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=kopskey --
+ managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access
+ eksctl create nodegroup --cluster=EKS1p --region=us-east-1 --name=node2 --node-type=t3.medium --nodes=3 --nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=kopskey --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access
+ll
+sh tools.sh
+systemctl status docker
+yum install docker -y
+systemctl status docker
+systemctl start docker
+vim tools.sh 
+chmod 777 ///var/run/docker.sock
+yum install git -y
+systemctl status jenkins
+kubectl get ns
+kubectl crreate ns webapps
+kubectl create ns webapps
+vim service.yml 
+kubectl create -f service.yml 
+vim role.yml 
+kubectl create -f role.yml 
+vim role.yml 
+kubectl create -f role.yml 
+vim rolebinding.yml 
+kubectl create -f rolebinding.yml 
+vim secret.yml 
+kubectl create -f secret.yml 
+kubectl describe secret mysecret -n webapps
+yum install git -y
+kubectl get all
+kubectl get all -n webapps
