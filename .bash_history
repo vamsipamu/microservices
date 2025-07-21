@@ -256,3 +256,7 @@ kubectl describe secret mysecret -n webapps
 yum install git -y
 kubectl get all
 kubectl get all -n webapps
+ll
+git push -u origin main
+ git origin -v
+kubectl create -f rolebinding.yml 
