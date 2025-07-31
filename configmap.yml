@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mycm0
+data:
+  sqldatabas_url: www.mysql.com
+  port: "3306"
+  api_key: my_api_key

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - image: nginx
+      name: cont-1
+      env:
+        - name: vamsi
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: keysecret 
+
+

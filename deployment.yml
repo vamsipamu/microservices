@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentwithpvc1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:   
+      app: swiggy
+  template:
+    metadata:
+      labels:
+        app: swiggy
+    spec:
+      containers:
+        - name: cont1
+          image: ubuntu
+          command: ["/bin/bash", "-c","while true; do echo my pracice; sleep 5; done"]
+          volumeMounts:
+            - name : devops
+              mountPath: "/tmp/vamsi"
+        - name: comt2
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo mypractice2; sleep 5; done" ]
+          volumeMounts:
+            - name: devops
+              mountPath: "/var/nagini"
+
+      volumes:
+        - name: devops
+          persistentVolumeClaim: 
+            claimName: pvc3     

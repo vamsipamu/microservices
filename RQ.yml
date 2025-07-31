@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+  name: my-rq
+  namespace: prod
+spec:
+  hard:
+    limits.cpu: "250m"
+    limits.memory: "200Mi"
+    requests.cpu: "30m"
+    requests.memory: "8Mi"

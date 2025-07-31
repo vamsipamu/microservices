@@ -11,12 +11,12 @@
 # hlsearch on (H) or off (h):
 ~H
 # Command Line History (newest to oldest):
-:wq!
-|2,0,1753116082,,"wq!"
 :q!
-|2,0,1753115106,,"q!"
+|2,0,1753960088,,"q!"
+:wq!
+|2,0,1753958622,,"wq!"
 :WQ!
-|2,0,1753097884,,"WQ!"
+|2,0,1753443855,,"WQ!"
 :wq1
 |2,0,1753097878,,"wq1"
 
@@ -29,260 +29,306 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-""0	LINE	0
-	      containers:
-	        - name: volcont1
-	          image: ubuntu
-	          command: ["/bin/bash/", "-c", "while true; do echo thisnis my insane practice; sleep 5; done"] 
-	          volumeMounts:
-	            - name: emptydirvolume
-	              mountPath: "/tmp/jenkins"
-	  
-|3,1,0,1,8,0,1753103234,"      containers:","        - name: volcont1","          image: ubuntu","          command: [\"/bin/bash/\", \"-c\", \"while true; do echo thisnis my insane practice; sleep 5; done\"] ","          volumeMounts:","            - name: emptydirvolume","              mountPath: \"/tmp/jenkins\"","  "
+"0	LINE	0
+	    storage: 3Gi
+	  accessModes: 
+	    - ReadWriteOnce
+	  persistentVolumeReclaimPolicy: Recycle
+	  awsElasticBlockStore:
+	    volumeID: vol-0304e40d49b42eab4
+	    fsType: ext4  
+|3,0,0,1,7,0,1753441321,"    storage: 3Gi","  accessModes: ","    - ReadWriteOnce","  persistentVolumeReclaimPolicy: Recycle","  awsElasticBlockStore:","    volumeID: vol-0304e40d49b42eab4","    fsType: ext4  "
+""1	LINE	0
+	      env:
+	        - name: myenvvalue
+	          valueFrom:
+	            configMapKeyRef:
+	              key: name
+	              name: myfirstcm
+	
+	        - name: myenvval1
+	          valueFrom:
+	            configMapKeyRef:
+	              key: place
+	              name: mysecondcm
+|3,1,1,1,12,0,1753449114,"      env:","        - name: myenvvalue","          valueFrom:","            configMapKeyRef:","              key: name","              name: myfirstcm","","        - name: myenvval1","          valueFrom:","            configMapKeyRef:","              key: place","              name: mysecondcm"
 
 # File marks:
-'0  5  19  ~/secret.yml
-|4,48,5,19,1753116082,"~/secret.yml"
-'1  5  19  ~/rolebinding.yml
-|4,49,5,19,1753115998,"~/rolebinding.yml"
-'2  5  19  ~/role.yml
-|4,50,5,19,1753115952,"~/role.yml"
-'3  38  1  ~/role.yml
-|4,51,38,1,1753115922,"~/role.yml"
-'4  38  1  ~/role.yml
-|4,52,38,1,1753115922,"~/role.yml"
-'5  6  19  ~/service.yml
-|4,53,6,19,1753115864,"~/service.yml"
-'6  20  31  ~/tools.sh
-|4,54,20,31,1753115106,"~/tools.sh"
-'7  20  31  ~/tools.sh
-|4,55,20,31,1753115086,"~/tools.sh"
-'8  5  19  ~/hostpathvol.yml
-|4,56,5,19,1753104506,"~/hostpathvol.yml"
-'9  34  14  ~/hostpathvol.yml
-|4,57,34,14,1753104476,"~/hostpathvol.yml"
+'0  34  0  ~/kubernetes/ingress/ingress.yml
+|4,48,34,0,1753960088,"~/kubernetes/ingress/ingress.yml"
+'1  33  0  ~/kubernetes/ingress/one.yml
+|4,49,33,0,1753959967,"~/kubernetes/ingress/one.yml"
+'2  33  0  ~/kubernetes/ingress/two.yml
+|4,50,33,0,1753959953,"~/kubernetes/ingress/two.yml"
+'3  2  0  ~/kubernetes/ingress/one.yml
+|4,51,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+'4  2  0  ~/kubernetes/ingress/one.yml
+|4,52,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+'5  1  11  ~/devops/ingress.yml
+|4,53,1,11,1753958622,"~/devops/ingress.yml"
+'6  1  0  ~/devops/values.yaml
+|4,54,1,0,1753956205,"~/devops/values.yaml"
+'7  18  19  ~/probes.yml
+|4,55,18,19,1753950718,"~/probes.yml"
+'8  18  12  ~/probes.yml
+|4,56,18,12,1753950626,"~/probes.yml"
+'9  18  21  ~/probes.yml
+|4,57,18,21,1753950599,"~/probes.yml"
 
 # Jumplist (newest first):
--'  5  19  ~/secret.yml
-|4,39,5,19,1753116082,"~/secret.yml"
--'  3  40  ~/secret.yml
-|4,39,3,40,1753116071,"~/secret.yml"
--'  5  19  ~/rolebinding.yml
-|4,39,5,19,1753115998,"~/rolebinding.yml"
--'  5  19  ~/rolebinding.yml
-|4,39,5,19,1753115998,"~/rolebinding.yml"
--'  13  12  ~/rolebinding.yml
-|4,39,13,12,1753115973,"~/rolebinding.yml"
--'  13  12  ~/rolebinding.yml
-|4,39,13,12,1753115973,"~/rolebinding.yml"
--'  5  19  ~/role.yml
-|4,39,5,19,1753115952,"~/role.yml"
--'  5  19  ~/role.yml
-|4,39,5,19,1753115952,"~/role.yml"
--'  5  19  ~/role.yml
-|4,39,5,19,1753115952,"~/role.yml"
--'  5  19  ~/role.yml
-|4,39,5,19,1753115952,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115937,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115937,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115937,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115937,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115922,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115922,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115922,"~/role.yml"
--'  38  1  ~/role.yml
-|4,39,38,1,1753115922,"~/role.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  6  19  ~/service.yml
-|4,39,6,19,1753115864,"~/service.yml"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115106,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  20  31  ~/tools.sh
-|4,39,20,31,1753115086,"~/tools.sh"
--'  5  19  ~/hostpathvol.yml
-|4,39,5,19,1753104506,"~/hostpathvol.yml"
--'  5  19  ~/hostpathvol.yml
-|4,39,5,19,1753104506,"~/hostpathvol.yml"
+-'  34  0  ~/kubernetes/ingress/ingress.yml
+|4,39,34,0,1753960088,"~/kubernetes/ingress/ingress.yml"
+-'  1  0  ~/kubernetes/ingress/ingress.yml
+|4,39,1,0,1753960034,"~/kubernetes/ingress/ingress.yml"
+-'  33  0  ~/kubernetes/ingress/one.yml
+|4,39,33,0,1753959967,"~/kubernetes/ingress/one.yml"
+-'  33  0  ~/kubernetes/ingress/one.yml
+|4,39,33,0,1753959967,"~/kubernetes/ingress/one.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959955,"~/kubernetes/ingress/one.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959955,"~/kubernetes/ingress/one.yml"
+-'  33  0  ~/kubernetes/ingress/two.yml
+|4,39,33,0,1753959953,"~/kubernetes/ingress/two.yml"
+-'  33  0  ~/kubernetes/ingress/two.yml
+|4,39,33,0,1753959953,"~/kubernetes/ingress/two.yml"
+-'  33  0  ~/kubernetes/ingress/two.yml
+|4,39,33,0,1753959953,"~/kubernetes/ingress/two.yml"
+-'  33  0  ~/kubernetes/ingress/two.yml
+|4,39,33,0,1753959953,"~/kubernetes/ingress/two.yml"
+-'  1  0  ~/kubernetes/ingress/two.yml
+|4,39,1,0,1753959926,"~/kubernetes/ingress/two.yml"
+-'  1  0  ~/kubernetes/ingress/two.yml
+|4,39,1,0,1753959926,"~/kubernetes/ingress/two.yml"
+-'  1  0  ~/kubernetes/ingress/two.yml
+|4,39,1,0,1753959926,"~/kubernetes/ingress/two.yml"
+-'  1  0  ~/kubernetes/ingress/two.yml
+|4,39,1,0,1753959926,"~/kubernetes/ingress/two.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+-'  2  0  ~/kubernetes/ingress/one.yml
+|4,39,2,0,1753959920,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  0  ~/kubernetes/ingress/one.yml
+|4,39,1,0,1753959863,"~/kubernetes/ingress/one.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  11  ~/devops/ingress.yml
+|4,39,1,11,1753958622,"~/devops/ingress.yml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  1  0  ~/devops/values.yaml
+|4,39,1,0,1753956205,"~/devops/values.yaml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
+-'  18  19  ~/probes.yml
+|4,39,18,19,1753950718,"~/probes.yml"
 
 # History of marks within files (newest to oldest):
 
-> ~/secret.yml
-	*	1753116080	0
-	"	5	19
-	^	5	20
-	.	5	19
-	+	6	20
-	+	7	59
-	+	3	9
-	+	5	19
-	+	6	16
-	+	8	1
-	+	4	0
-	+	3	40
-	+	5	19
+> ~/kubernetes/ingress/ingress.yml
+	*	1753960086	0
+	"	34	0
+
+> ~/kubernetes/ingress/one.yml
+	*	1753959963	0
+	"	33	0
+
+> ~/kubernetes/ingress/two.yml
+	*	1753959951	0
+	"	33	0
+
+> ~/devops/ingress.yml
+	*	1753958620	0
+	"	1	11
+	^	1	12
+	.	1	11
+	+	1	11
+
+> ~/devops/values.yaml
+	*	1753956204	0
+	"	1	0
+
+> ~/probes.yml
+	*	1753950715	0
+	"	18	19
+	^	18	20
+	.	18	19
+	+	7	4
+	+	6	2
+	+	12	22
+	+	22	0
+	+	8	21
+	+	9	5
+	+	8	17
+	+	9	8
+	+	10	6
+	+	9	5
+	+	10	6
+	+	11	7
+	+	12	8
+	+	10	10
+	+	21	0
+	+	13	20
+	+	20	7
+	+	19	7
+	+	18	19
 
 > ~/rolebinding.yml
-	*	1753115996	0
+	*	1753949197	0
 	"	5	19
 	^	5	20
 	.	5	19
@@ -300,8 +346,8 @@
 	+	5	19
 
 > ~/role.yml
-	*	1753115950	0
-	"	5	19
+	*	1753948652	0
+	"	39	0
 	^	5	20
 	.	5	19
 	+	39	0
@@ -376,250 +422,256 @@
 	+	38	1
 	+	5	19
 
-> ~/service.yml
-	*	1753115860	0
-	"	6	19
-	^	6	20
-	.	6	19
-	+	5	1
-	+	3	19
-	+	6	17
-	+	4	10
-	+	5	12
-	+	6	19
+> ~/role
+	*	1753948243	0
+	"	1	0
 
-> ~/tools.sh
-	*	1753115104	0
-	"	20	31
-	^	20	32
-	.	20	31
-	+	20	31
+> ~/statefullset.yml
+	*	1753945865	0
+	"	19	30
+	^	19	31
+	.	19	30
+	+	1	19
+	+	5	4
+	+	2	14
+	+	19	30
 
-> ~/hostpathvol.yml
-	*	1753104505	0
+> ~/RQ.yml
+	*	1753945091	0
+	"	11	22
+	^	11	23
+	.	11	22
+	+	7	43
+	+	7	57
+	+	11	20
+	+	8	21
+	+	9	23
+	+	10	22
+	+	11	24
+	+	5	15
+	+	2	18
+	+	4	12
+	+	5	16
+	+	8	20
+	+	10	21
+	+	8	20
+	+	9	24
+	+	10	21
+	+	11	25
+	+	3	7
+	+	11	22
+
+> ~/podrq.yml
+	*	1753944984	0
+	"	16	19
+	^	16	20
+	.	16	19
+	+	23	14
+	+	22	0
+	+	19	24
+	+	21	0
+	+	20	0
+	+	18	19
+	+	19	0
+	+	1	16
+	+	1	14
+	+	13	22
+	+	14	16
+	+	13	21
+	+	16	21
+	+	17	16
+	+	16	18
+	+	13	19
+	+	14	16
+	+	17	17
+	+	12	16
+	+	13	9
+	+	14	10
+	+	13	9
+	+	15	5
+	+	16	8
+	+	17	9
+	+	3	6
+	+	1	3
+	+	13	22
+	+	16	22
+	+	6	16
+	+	13	20
+	+	14	18
+	+	16	19
+	+	17	16
+	+	5	13
+	+	17	16
+	+	16	19
+
+> ~/pod.yml
+	*	1753942431	0
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	14
+	+	24	47
+	+	22	12
+	+	23	5
+	+	24	5
+	+	26	26
+	+	19	10
+	+	20	14
+	+	18	13
+	+	20	13
+	+	18	13
+	+	7	55
+	+	16	29
+	+	16	23
+	+	16	0
+	+	6	30
+	+	7	18
+	+	15	0
+	+	9	14
+	+	9	32
+	+	14	0
+	+	12	25
+	+	13	48
+	+	7	0
+	+	2	6
+	+	8	6
+	+	13	44
+	+	7	17
+	+	13	27
+	+	14	0
+	+	1	0
+
+> ~/resourcequota.yml
+	*	1753942367	0
+	"	1	0
+
+> ~/secret.yml
+	*	1753611631	0
 	"	5	19
 	^	5	20
 	.	5	19
-	+	34	20
-	+	35	32
-	+	34	18
-	+	35	29
-	+	34	14
+	+	6	20
+	+	7	59
+	+	3	9
+	+	5	19
+	+	6	16
+	+	8	1
+	+	4	0
+	+	3	40
 	+	5	19
 
-> ~/emptydirvol.yml
-	*	1753103943	0
-	"	32	5
-	^	32	6
-	.	32	6
-	+	19	88
-	+	17	7
-	+	18	6
-	+	19	27
-	+	15	3
-	+	16	5
-	+	17	6
-	+	18	8
-	+	19	8
-	+	23	0
-	+	19	105
-	+	20	23
-	+	21	34
-	+	22	37
-	+	24	2
-	+	25	23
-	+	26	22
-	+	29	34
-	+	30	39
-	+	32	13
-	+	34	19
-	+	35	10
-	+	21	25
-	+	29	25
-	+	32	4
-	+	22	19
-	+	34	21
-	+	7	12
-	+	32	6
+> ~/configmap.yml
+	*	1753448795	0
+	"	7	16
+	^	7	17
+	.	7	17
+	+	8	1
+	+	9	9
+	+	8	7
+	+	7	17
 
-> ~/daemon.yml
-	*	1753098022	0
-	"	3	12
-	^	3	13
-	.	3	12
-	+	20	0
-	+	13	19
-	+	14	9
-	+	15	17
-	+	17	14
-	+	16	22
-	+	19	30
-	+	18	14
-	+	3	12
-
-> ~/hpa.yml
-	*	1753095692	0
-	"	18	31
-	^	18	32
-	.	18	32
-	+	4	13
-	+	9	23
-	+	10	15
-	+	21	0
-	+	11	17
-	+	20	0
-	+	14	6
-	+	13	12
-	+	14	15
-	+	19	0
-	+	17	27
-	+	18	32
-	+	17	16
-	+	1	25
-	+	2	28
-	+	6	12
-	+	1	17
-	+	2	18
-	+	18	32
+> ~/congigmap.yml
+	*	1753448659	0
+	"	1	0
 
 > ~/deployment.yml
-	*	1753094591	0
-	"	17	18
-	^	17	19
-	.	17	18
-	+	20	26
-	+	18	20
-	+	19	12
-	+	20	26
-	+	29	3
-	+	41	0
-	+	35	2
-	+	40	19
-	+	17	7
-	+	18	7
-	+	19	7
-	+	20	9
+	*	1753444660	0
+	"	32	26
+	^	32	27
+	.	32	26
+	+	51	26
+	+	49	20
+	+	50	12
+	+	51	26
+	+	60	3
+	+	72	0
+	+	66	2
+	+	71	19
+	+	48	7
+	+	49	7
+	+	50	7
+	+	51	9
 	+	1	3
-	+	33	14
-	+	15	3
-	+	16	4
-	+	17	6
-	+	18	7
-	+	19	8
-	+	20	10
-	+	33	14
-	+	5	10
-	+	7	12
-	+	21	19
-	+	27	0
-	+	21	19
-	+	26	0
-	+	21	18
-	+	22	21
-	+	23	26
-	+	24	19
-	+	25	24
-	+	23	23
-	+	17	18
-
-> ~/replicaset.yml
-	*	1753086136	0
-	"	9	6
-	^	9	7
-	.	9	6
-	+	2	19
-	+	1	16
-	+	2	14
-	+	4	11
-	+	8	11
-	+	13	15
-	+	16	19
-	+	2	13
-	+	9	6
-	a	8	4
-
-> ~/replicacontroller.yml
-	*	1753085498	0
-	"	17	15
-	^	17	16
-	.	2	16
+	+	64	14
+	+	46	3
+	+	47	4
+	+	48	6
+	+	49	7
+	+	50	8
+	+	51	10
+	+	64	14
+	+	36	10
+	+	38	12
+	+	52	19
+	+	58	0
+	+	52	19
+	+	57	0
+	+	52	18
+	+	53	21
+	+	54	26
+	+	55	19
+	+	56	24
+	+	54	23
+	+	48	18
+	+	4	38
+	+	8	19
+	+	22	0
+	+	10	11
 	+	19	0
-	+	7	10
-	+	8	2
-	+	9	1
-	+	10	13
-	+	13	9
-	+	18	30
-	+	2	16
+	+	17	22
+	+	18	52
+	+	21	35
+	+	24	88
+	+	27	37
+	+	30	20
+	+	32	20
+	+	29	5
+	+	1	17
+	+	8	9
+	+	18	85
+	+	22	6
+	+	23	7
+	+	24	8
+	+	25	10
+	+	26	10
+	+	27	11
+	+	30	6
+	+	31	8
+	+	32	26
+	+	4	25
+	+	32	26
 
-> ~/lbsvc.yml
-	*	1753082271	0
-	"	5	10
-	^	5	11
-	.	5	11
-	+	13	10
-	+	5	9
-	+	7	19
-	+	13	6
-	+	5	11
-
-> ~/nodeportvc.yml
-	*	1753081880	0
-	"	1	0
-
-> ~/clusteripservice.yml
-	*	1753081654	0
-	"	1	0
-
-> ~/nodeportvc
-	*	1753081504	0
-	"	12	22
-	^	12	23
-	.	12	22
-	+	6	0
-	+	1	3
-	+	7	15
-	+	5	15
-	+	12	22
-
-> ~/myservice.yml
-	*	1753080954	0
-	"	12	1
-	^	12	2
-	.	12	2
-	+	13	0
-	+	11	16
-	+	12	21
-	+	1	3
-	+	2	12
-	+	12	6
-	+	10	2
-	+	11	3
-	+	12	4
-	+	10	2
-	+	11	2
-	+	12	2
-
-> ~/pod.yml
-	*	1753080614	0
-	"	4	13
-	^	4	14
-	.	4	13
+> ~/pvc.yml
+	*	1753444084	0
+	"	4	11
+	^	4	12
+	.	4	11
 	+	1	14
-	+	10	47
-	+	8	12
-	+	9	5
-	+	10	5
-	+	12	26
-	+	5	10
-	+	6	14
-	+	4	13
-	+	6	13
-	+	4	13
+	+	4	12
+	+	10	15
+	+	10	0
+	+	10	6
+	+	9	11
+	+	8	10
+	+	4	11
+	+	10	16
+	+	4	11
+	+	11	0
+	+	10	15
+	+	4	11
 
-> ~/.bashrc
-	*	1753021695	0
-	"	13	16
-	^	13	17
-	.	13	16
-	+	13	16
+> ~/pv.yml
+	*	1753443891	0
+	"	5	12
+	^	5	13
+	.	5	12
+	+	5	12
+	+	9	15
+	+	11	40
+	+	14	6
+	+	8	13
+	+	5	12
+	+	8	13
+	+	5	12
+	+	8	13
+	+	5	12

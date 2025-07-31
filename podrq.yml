@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rqpod1
+  namespace: prod
+spec:
+  containers:
+    - name: vamsi
+      image: ubuntu
+      resources:
+        requests:
+          memory: "10Mi"
+          cpu: "15m"
+        limits:
+          memory: "300Mi"
+          cpu: "200m"

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: livenessprobepod
+spec:
+  containers:
+    - name: myprobecont
+      image: nginx
+      args:
+        - /bin/bash
+        - c
+        - touch /tmp/vamsi; sleep 500
+      livenessProbe:
+        exec:
+          command:
+            - cat
+            - /tmp/vamsi
+        initialDelaySeconds: 5
+        periodSeconds: 10
+        timeoutSeconds: 30
+
+
