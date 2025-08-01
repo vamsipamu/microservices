@@ -509,3 +509,135 @@ kubectl get pod livenessprobepod -o jsonpath="{.spec.containers[*].name}"
 kubectl exec -it livenessprobepod -c actual-container-name -- /bin/bash
 kubectl get pod livenessprobepod -o jsonpath="{.spec.containers[*].name}"
 ll
+curl -fsSL -o get_helm.sh
+https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+ll
+chmod 700 get_helm.sh
+./get_helm.sh
+helm version
+helm repo list
+helm create devops
+cd devops
+ll
+vim values.yaml 
+helm repo add myfirstrepo https://charts.helm.sh/stable
+ll
+vim ingress.yml
+cd ..
+: kubectl create -f https://raw.githubuserconte nt.com/kubernetes/ingressnginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+: kubectl create -f https://raw.githubusercontent.com/kubernetes/ingressnginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/ingressnginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/ingres-nginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+git --version
+git clone https://github.com/vamsipamu/kubernetes.git
+ll
+git clone https://github.com/vamsipamu/kubernetes.git
+cd kubernetes/
+ll
+cd ingress/
+ll
+vim one.yml 
+vim two.yml 
+vim one.yml 
+vim ingress.yml 
+kubectl create -f ingress.yml 
+kubectl create -f one.yml 
+kubectl create -f two.yml 
+kubectl get ing
+ll
+cd ../
+ll
+helm repo add myfirstrepo https://charts.helm.sh/stable
+git add .
+git commit -m "recent practice"
+helm repo list
+helm update repo
+helm repo update
+helm create helmpractice1
+cd helmpractice1/
+ll
+vim charts/
+vim chart.yaml
+l
+cd helmpractice1/
+ll
+vim charts.yaml
+vim values.yaml 
+cd templates/
+ll
+cd ..
+cd charts/
+ll
+cd ..
+helm install myhelmdevops-v1
+helm install myhelmdevops-v1 .
+kubectl get po
+kubectl get rs
+kubectl get svc
+vim values.yaml 
+helm repo list
+helm release list
+helm list
+helm upgrade second.v2 .
+helm update second.v2 .
+helm history myhelmpractice .
+helm history myhelmpractice-v1 .
+ll
+kubectl create ns monitor
+kubectl create ns prom
+kubectl create ns graf
+kubectl get ns
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl get kube-system
+kubectl get all -n kube-system
+kubectl delete deployment metrics-server -n kube-system
+kubectl apply -f metrics-server-config.yaml
+kubectl get all -n kube-system
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl get all -n kube-system
+kubectl get pods -n kube-system
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update'
+helm repo update
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo list
+helm repo remove myfirstrepo
+helm repo list
+helm update
+helm repo update
+helm install prometheus prometheus-community/prometheus --namespace prometheus --set
+alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+helm install prometheus prometheus-community/prometheus --namespace prometheus --set
+alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+alertmanager.persistentVolume.storageClass="gp2" --set server.peistentVolume.storageClass="gp2"
+--set
+alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+kubectl get ns
+helm install prometheus prometheus-community/prometheus --namespace prom --set
+alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+helm install prometheus prometheus-community/prometheus   --namespace prom   --set "alertmanager.persistentVolume.storageClass=gp2"   --set "server.persistentVolume.storageClass=gp2"
+kubectl get all -n prom
+helm install grafana grafana/grafana --namespace grafana --set persistence.storageClassName="gp2" --set
+persistence.enabled=true --set adminPassword='EKS!sAWSome' --set service.type=LoadBalancer
+helm install grafana grafana/grafana   --namespace graf   --set persistence.storageClassName="gp2"   --set persistence.enabled=true   --set adminPassword='EKS!sAWSome'   --set service.type=LoadBalancer
+kubectl get svc --ns graf -w grafana
+kubectl get svc --namespace graf -w grafana
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl get all -n argocd
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+yum install jq -y
+export ARGOCD_SERVER='kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname''
+echo $ARGOCD_SERVER
+kubectl get svc argocd-server -n argocd -o json | jq --raw-output .status.loadBalancer.ingress[0].hostname
+export ARGO_PWD='kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d'
+echo $ARGO_PWD
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+vim deployment.yml 
+eksctl create nodegroup --cluster=EKSts --region=us-east-1 --name=node2 --node-type=t3.medium --nodes=3 --nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=kopskey --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access
+eksctl delete cluster --name EKSts --region us-east-1
+ll
